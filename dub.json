@@ -1,0 +1,17 @@
+{
+    "authors": [
+        "klknn"
+    ],
+    "copyright": "Copyright © 2023, klknn",
+    "dependencies": {
+        "bindbc-lua": "~>0.5",
+        "dplug:graphics": "~>13.4",
+        "dplug:gui": "~>13.4",
+    },
+    "description": "Dplug wrapper for Lua",
+    "license": "BSL-1.0",
+    "comment": "TODO(klknn): Move version spec to examples/*/dub.json.",
+    "versions": ["LUA_51", "BindLua_Static"],
+    "sourceFiles-linux": ["/usr/lib/x86_64-linux-gnu/libluajit-5.1.a"],
+    "name": "dplug-lua"
+}

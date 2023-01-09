@@ -1,0 +1,11 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"bindbc-loader": "1.0.1",
+		"bindbc-lua": "0.5.1",
+		"dplug": "13.4.0",
+		"gamut": "2.0.5",
+		"intel-intrinsics": "1.11.0",
+		"wren-port": "1.1.5"
+	}
+}

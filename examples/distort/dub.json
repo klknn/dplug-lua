@@ -1,0 +1,65 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Pure-D/code-d/master/json-validation/dub.schema.json",
+
+    "name": "distort",
+
+    "license": "public domain",
+    "importPaths": [ "." ],
+    "sourcePaths": [ "." ],
+    "stringImportPaths": ["gfx", "fonts", "scripts", "."],
+
+    "copyright": "none",
+
+    "dflags-linux-dmd": ["-defaultlib=libphobos2.a"],
+    "dflags-osx-ldc": ["-static"],
+    "dflags-linux-ldc": ["-link-defaultlib-shared=false"],
+    "dflags-linux-x86_64-ldc": ["-fvisibility=hidden"],
+    "dflags-windows-ldc": ["-mscrtlib=libcmt","-fvisibility=hidden", "-link-defaultlib-shared=false"],
+
+    "dependencies":
+    {
+        "dplug:dsp": "~>13.4",
+        "dplug:vst2": "~>13.4",
+        "dplug:vst3": "~>13.4",
+        "dplug:au": "~>13.4",
+        "dplug:lv2": "~>13.4",
+        "dplug:gui": "~>13.4",
+        "dplug:pbr-widgets": "~>13.4",
+        "dplug:flat-widgets": "~>13.4",
+        "dplug:wren-support": "~>13.4",
+        "dplug-lua" : { "path": "../.." }
+    },
+
+    "comment": "Example of configuration options. It is wise, before releasing a new product, to try to use a maximum of futureOptions",
+    "versions": ["futureMouseDrag"],
+
+    "configurations": [
+        {
+            "name": "VST3",
+            "versions": ["VST3"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "module-vst3.lst", "-dead_strip" ],
+            "lflags-linux-ldc": [ "--version-script=module-vst3.ver" ]
+        },
+        {
+            "name": "VST2",
+            "versions": ["VST2"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "module-vst2.lst", "-dead_strip" ],
+            "lflags-linux-ldc": [ "--version-script=module-vst2.ver" ]
+        },
+        {
+            "name": "AU",
+            "versions": ["AU"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "module-au.lst", "-dead_strip" ]
+        },
+        {
+            "name": "LV2",
+            "versions": ["LV2"],
+            "targetType": "dynamicLibrary",
+            "lflags-osx-ldc": [ "-exported_symbols_list", "module-lv2.lst", "-dead_strip" ],
+            "lflags-linux-ldc": [ "--version-script=module-lv2.ver" ]
+        }
+    ]
+}
